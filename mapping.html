@@ -60,7 +60,7 @@
 
 <p>This module will address the basic bioinformatic analytical steps underlying mapping/reference assembly of NGS data. We will mainly focus on the analysis of sequence data obtained from Illumina platforms, that presently dominates 80-90% of the market, sequenced in paired-end mode. What does “paired-end mode” mean?  It is important to first start by understanding the process of Illumina “sequencing-by-synthesis” methodology: starting with genomic DNA, it is randomly sheared and an appropriate length is selected after fractioning by agarose gel electrophoresis, followed by adapter ligation and solid phase PCR amplification (bridge amplification) on a sequencing flow cell [1]. Afertwards, sequencing by synthesis is carried out using reversible fluorescently-labelled terminator nucleotides where each fragment is sequenced on both ends producing two mate reads for each fragment (hence, paired-end sequencing).</p>
 
-<img src="images/sequencing_platforms.jpg" alt="blank space">
+<img src="images/sequencing_platforms.JPG" alt="blank space">
 
 <p>The ensuing computational or in silico analysis picks up from the FASTQ files produced after adapter removal. The two main approaches at this point are as mentioned, Mapping and De novo Assembly. In this module we will focus on Mapping sequence reads obtained from M. tuberculosis clinical isolates collected in Portugal. By mapping sequence reads to a reference genome it will enable the downstream identification of Single Nucleotide Polymorphisms (SNPs), insertions and deletions (indels) and copy number variants (CNVs) that exist between the two organisms. Comparative Genomics underpinned on mapping analysis is also possible if the reference sequence remains the same. 
 </p>
@@ -127,7 +127,7 @@ $ more PT000033_1.fastq
 
 <p> </p>
 <p> </p>
-
+<br>
 <h2>Exercise 2 – Read Quality Control</h2>
 
 <p>Before introducing sequencing reads into an analytical pipeline it is highly important to check the overall quality of the reads through the evaluation of the percentage of low quality bases, contamination or length. The impact of low quality or base calling errors can be minimised in downstream applications by applying some filters where low quality reads or bases are removed if these do not meet thresholds defined by the user [2, 3].</p>
@@ -148,14 +148,14 @@ $ fastqc
 
 <p><u>Let’s have a look at the QC parameters:</u></p>
 
-<img src="images/QC1.jpg" alt="blank space">
-<img src="images/QC2.jpg" alt="blank space">
-<img src="images/QC3.jpg" alt="blank space">
-<img src="images/QC4.jpg" alt="blank space">
-<img src="images/QC5.jpg" alt="blank space">
-<img src="images/QC6.jpg" alt="blank space">
+<img src="images/QC1.JPG" alt="blank space">
+<img src="images/QC2.JPG" alt="blank space">
+<img src="images/QC3.JPG" alt="blank space">
+<img src="images/QC4.JPG" alt="blank space">
+<img src="images/QC5.JPG" alt="blank space">
+<img src="images/QC6.JPG" alt="blank space">
 
-
+<br>
 
 <h2>Exercise 3 –  Sequence Read Trimming</h2>
 
