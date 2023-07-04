@@ -31,12 +31,12 @@
 </div>
 
 <a href="index.html" target="_blank"><<-HOME</a>
-<!-- <div>
-<object data="pdfs/M2_Assembly.pdf#page=1" type="application/pdf" width="100%" height="500px">
+<div>
+<object data="pdfs/M4_PhylogeneticsI.pdf#page=1" type="application/pdf" width="100%" height="500px">
           <p><b>Example fallback content</b>: This browser does not support PDFs. Please download the PDF to view it:
           <a href="pdfs/M2_Assembly.pdf">Download PDF</a>.</p>
 </object>
-</div> -->
+</div>
 
 
 <div class="container2" >
@@ -135,52 +135,52 @@ you can select a nucleotide (or a block of nucleotides) and move them sideways u
 <pre>
 $ cd HCV_dataset1
 </pre>
-<p>	
+<p>
 We will first perform a Model test in IQ-Tree as follows:
 </p>
 <pre>
 $ iqtree -s NS5A_SPnoRAS040723.fas -m TESTONLY
 </pre>
-<p> -s is the option to specify the name of the alignment file that is always required by IQ-TREE to work.</p>	
+<p> -s is the option to specify the name of the alignment file that is always required by IQ-TREE to work.</p>
 
-<p>	-m TEST is the option to call up the model test without tree reconstruction.<p>	
-<p>	
+<p>	-m TEST is the option to call up the model test without tree reconstruction.<p>
+<p>
 &emsp;Q4.1. What are the best models according to AIC and BIC?
-</p>	
+</p>
 
-<p>	<b>Troubleshooting:</b> If there is an error with executing the .fas file, open the file in a text editor to confirm that the sequence names are well written, probably missing underscores. Fix error by renaming the sequence names as follows (new file name  old file name): <p>	
+<p>	<b>Troubleshooting:</b> If there is an error with executing the .fas file, open the file in a text editor to confirm that the sequence names are well written, probably missing underscores. Fix error by renaming the sequence names as follows (new file name  old file name): <p>
 
-<pre>	
+<pre>
 $ sed 's/ /_/g' NS5A_SPnoRAS040723.fas > NS5A_SPnoRAS040723T.fas
-</pre>	
+</pre>
 
-<p>	
+<p>
 Next, we will combine both Model search with ML tree reconstruction and bootstrap branch support:
-</p>	
-<pre>		
+</p>
+<pre>
 $ iqtree -s NS5A_SPnoRAS040723.fas -m MFP -b 1000
 </pre>
-<p>	
+<p>
 -m MFP is the option to specify the model name to use during the analysis and MFP(Modelfinder Plus) performs the model selection search similar to the JModel test that will be used for the tree reconstruction.
 </p>
 
-<p>	
+<p>
 To minimize the demanding computation imposed by bootstrap we will proceed instead with alternative branch supports UFboot and aLRT:
-</p>	
+</p>
 
 <pre>
 $ iqtree -s NS5A_SPnoRAS040723.fas -m MFP -bb 1000 -alrt 1000 -redo
 </pre>
-<p>		
+<p>
 -bb 1000 specifies the number of replicates for UFBoot: IQ-TREE assesses branch support using an ultrafast bootstrap approximation (UFBoot) that is orders of magnitude faster than the standard bootstrap procedure.
 </p>
-<p>		
+<p>
 -alrt 1000 specifies the number of iterations for the approximate likelihood rate test (aLRT)
 </p>
-<p>	
+<p>
 At the end of the run IQ-TREE will write several output files including:
 </p>
-	
+
 <p> &emsp;• example.phy.iqtree: You should look at this file to see the computational results. It also contains a textual representation of the final tree.</p>
 
 <p> &emsp;• example.phy.treefile: the ML tree in NEWICK format, which can be visualized by any supported tree viewer programs like FigTree or iTOL.</p>
@@ -231,25 +231,25 @@ $ iqtree -s NS5A1a1_SPnoRAS120722.fas -m MFP -alrt 1000 -redo
 </p>
 <p>
 Import the treefile and corresponding fas/fasta files into ClusterPicker as shown below:
-</p> 
+</p>
 <img src="images/clusterpicker.jpg" alt="blank space">
 
 <p>
 Output files:
 <p>
-<p>	
+<p>
 NS5A1a1_SPnoRAS120722.fas_clusterPicks.nwk - renamed tree file
 </p>
 <p>
 NS5A1a1_SPnoRAS120722.fas_clusterPicks.nwk.FigTree - coloured figtree file
 </p>
-<p>	
+<p>
 NS5A1a1_SPnoRAS120722.fas_clusterPicks_log.txt - log text file
 </p>
-<p>	
+<p>
 Open the log text file for detailed descriptions of the transmission cluster.
 </p>
-<p>	
+<p>
 <i>&emsp;Q6. Can we enforce more restrictive transmission cluster parameters? How many TCs do we have with a Bootstrap/aLRT = 90 and GD = 1.5% (0.015)?</i>
 </p>
 <p>
@@ -259,36 +259,36 @@ Open the coloured figtree file and observe the new annotation and compare this w
 <h2>E. TEMPEST – Temporal signal</h2>
 
 <a href="https://beast.community/tempest" target="_blank">https://beast.community/tempest</a>
-<p>	
+<p>
 Prior to delving into spatio-temporal analysis under Bayesian astatistics as implemented in the BEAST package we will use TempEst to determine the temporal signal and ‘clocklikeness’ of molecular phylogenies of our dataset. It is designed for analysing trees that have not been inferred under a molecular-clock assumption (Sections A-D) to see how valid this assumption may be. Importantly, it can also root the tree at the position that is likely to be the most compatible with the assumption of the molecular clock.
-</p>	
-<p>	
+</p>
+<p>
  &emsp;• Once TemPest is opened it will immediately open a dialogue box to input your treefile. Select NS5A1a1_SPnoRAS120722.fas.treefile
-</p>	 
+</p>
 
 <img src="images/tempest.png" alt="blank space", style="max-width: 50%;">
 
 <p>	&emsp;• First, we specify the dates of the sequences in calendar years using the Parse Dates button on top of the panel. Recall the order of the naming sequence (Section A, also displayed in the TemPest console) and notice that ¨year¨ is the third item, and the separating prefix is an underscore ¨_¨
-</p>	
+</p>
 
 <img src="images/tempest2.png" alt="blank space", style="max-width: 50%;">
 
-<p>	
+<p>
 The dates in calendar years and Heights (year difference from the most recently sampled sequence 2015 in this case) for all the sequences will be displayed if properly parsed.
-</p>	 
+</p>
 <img src="images/tempest3.png" alt="blank space", style="max-width: 50%;">
 
-<p>	&emsp;• Next, we explore the Tree, Root-to-tip, and Residuals panels.</p>	
+<p>	&emsp;• Next, we explore the Tree, Root-to-tip, and Residuals panels.</p>
 
 <img src="images/tempest4.png" alt="blank space", style="max-width: 50%;">
 
-<p>	
+<p>
 <i>&emsp;Q7.1. What changes can be observed in the parameters listed in the left panel when you check the Best-fitting root? And when you switch between the different top panels, what changes do you observe?</i>
-</p>	
+</p>
 
-<p>	
+<p>
 <i>&emsp;Q7.2. Is there sufficient temporal signal in our dataset? Why is this so?</i>
-</p>	
+</p>
 
 
 <p> </p>
