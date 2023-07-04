@@ -52,7 +52,7 @@
 <br>
 <br>
 <h2>Part I – Mycobacterium tuberculosis related software</h2>
-<h2>Exercise 1 – Extracting spoligotypes</h2> 
+<h2>Exercise 1 – Extracting spoligotypes</h2>
 <p>
 This first exercise will be focused on obtaining spoligotyping information from raw sequence data. Two available tools Spolpred and Spotyping can be used for this end, both rely on the identification of specific regions called spacer regions in the Direct Repeat locus. Basically it an in silico version of what is carried out in the lab using the classical methodology: 43 probes will be used to check the presence/absence of these regions as originally described by Kamerbeek et al in 1997! However, herein, these will be “in silico probes” and since the sequence length of these probes is 25 nt this can even be applied to early protocols of NGS sequencing generating 36 bp reads.
 </p>
@@ -88,7 +88,7 @@ You can notice that it outputs the usage, to know more:
 $ SpoTyping.py -h
 </pre>
 <p>
-Take some time to read the different options. 
+Take some time to read the different options.
 </p>
 
 <img src="images/spotyping.jpg" alt="blank space">
@@ -115,7 +115,7 @@ $ SpoTyping.py PT000033_1.fastq.gz -o PT000033_1.out
 <p>
 It should take a minute or so to complete. Once it does check the files in the directory. There is a log file, the output file and an excel spreadsheet with the results from SITVIT query.
 </p>
-<p>	
+<p>
 To see the profile just type:
 </p>
 <pre>
@@ -124,10 +124,10 @@ $ more PT000033_1.out
 <p>
 Now have a look at the spreadsheet and at the log file. What do you see?
 </p>
-<p>	
+<p>
 In the end, what SIT and clade does this strain belong to? Is it expected in Portugal?
 </p>
-<p>	
+<p>
 Feel free to try with other strains in the course files directory. What do you find?
 </p>
 <br>
@@ -173,7 +173,7 @@ Once it completes you can check the results in the CSV files!
 <br>
 <h2>Exercise 3 – Resistance Prediction: TB Profiler</h2>
 <p>
-Let’s switch to an alternative tool! We will use TB-Profiler which also reports drug resistance and (sub)lineage. The command-line version of TB profiler has different functionalities depending if you want to collate the results of previous runs, carry out the complete pipeline or, execute the pipeline for VCF files. We will use the profile function which carries out all the pipeline including mapping and variant calling. It is also possible to skip the mapping stage if you already possess a BAM file. In that case you use the BAM file as input instead of raw reads. Take a moment to look at the help page by typing: 
+Let’s switch to an alternative tool! We will use TB-Profiler which also reports drug resistance and (sub)lineage. The command-line version of TB profiler has different functionalities depending if you want to collate the results of previous runs, carry out the complete pipeline or, execute the pipeline for VCF files. We will use the profile function which carries out all the pipeline including mapping and variant calling. It is also possible to skip the mapping stage if you already possess a BAM file. In that case you use the BAM file as input instead of raw reads. Take a moment to look at the help page by typing:
 </p>
 <pre>
 $ conda activate tb-profiler
@@ -218,7 +218,7 @@ Now that you have run reads from different clinical isolates it is time to compa
 </p>
 <img src="images/tbprofiler_results.JPG" alt="blank space">
 <p>
-Tip: For the PT strains you can check the phenotype at http://cplp-tb.ff.ulisboa.pt. 
+Tip: For the PT strains you can check the phenotype at http://cplp-tb.ff.ulisboa.pt.
 </p>
 <p>
 As an alternative to the command-line versions you can also check PhyResSE and TGS-Tb which also perform AMR prediction for TB. These two platforms are web-based. You can open the browser and upload the data. Warning: this analysis takes some time, but if you choose to do it try first PhyResSE as TGS-TB is now relying on TB Profiler and will likely show you the same results you have obtained here.
@@ -284,7 +284,7 @@ $ amrfinder --nucleotide Kp5.fasta --plus > Kp5_amrfinder.tsv
 <h2>Exercise 5 – K. pneumoniae capsule, O antigen and MLST</h2>
 
 <p>
-Next, we will use another tool that although capable of detecting resistance genes it is specifically developed for Klebsiella and the determination of the Sequence Type (MLST) capsular locus and O antigen locus. 
+Next, we will use another tool that although capable of detecting resistance genes it is specifically developed for Klebsiella and the determination of the Sequence Type (MLST) capsular locus and O antigen locus.
 <p>
 <pre>
 # Try the following
@@ -326,7 +326,7 @@ $ cd ../Ec_assemblies
 $ abricate
 </pre>
 <p>
-You will get something like: 
+You will get something like:
 </p>
 <img src="images/abricate.JPG" alt="Roary Options List">
 <p>
@@ -385,7 +385,7 @@ $ abricate --db vfdb --minid 90 --mincov 60 Ec2.fasta > Ec2_vfdb_filtered.tsv
 $ abricate --summary Ec1_vfdb_filtered.tsv Ec2_vfdb_filtered.tsv > vfdb_summary_filtered.tsv
 </pre>
 <p>
-Tips: Notice that the -cd option controls the percentage of isolates a gene must be in to be in the core set (by default 99%). You can tweak this a bit but also be  mindful that you need to have a larger dataset to notice any differences. 
+Tips: Notice that the -cd option controls the percentage of isolates a gene must be in to be in the core set (by default 99%). You can tweak this a bit but also be  mindful that you need to have a larger dataset to notice any differences.
 </p>
 <br>
 <h2>Optional Exercise:</h2>
